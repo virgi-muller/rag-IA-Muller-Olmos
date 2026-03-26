@@ -30,7 +30,24 @@ Con el entorno virtual activado, instala las dependencias del proyecto:
 pip install -r requirements.txt
 ```
 
-### 4. Desactivar el entorno virtual
+### 4. Configurar variables de entorno
+
+Copia el archivo de ejemplo y completá las claves necesarias:
+
+```bash
+cp .env.example .env
+```
+
+Luego editá `.env` con tus credenciales:
+
+| Variable | Descripcion |
+|---|---|
+| `CHROMA_TENANT` | Tenant de ChromaDB |
+| `CHROMA_DATABASE` | Nombre de la base de datos en ChromaDB |
+| `CHROMA_API_KEY` | API key de ChromaDB |
+| `GOOGLE_API_KEY` | API key de Google (Gemini) |
+
+### 5. Desactivar el entorno virtual
 
 Cuando termines de trabajar:
 
