@@ -10,3 +10,6 @@ __pycache__/
 
 # Claude Code
 .claude/
+
+chunks.json
+inspect_chunks.py
