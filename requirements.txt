@@ -1,0 +1,7 @@
+langchain-mistralai
+langchain-chroma
+langchain-community
+langchain-text-splitters
+langchain-core
+pypdf
+python-dotenv
