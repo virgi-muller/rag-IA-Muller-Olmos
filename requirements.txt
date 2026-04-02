@@ -1,3 +1,4 @@
+mistralai
 langchain-mistralai
 langchain-chroma
 langchain-community
