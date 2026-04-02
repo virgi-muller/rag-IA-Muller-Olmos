@@ -167,7 +167,7 @@ else:
         strip_headers=True,
     )
 
-    # Agrupar páginas por documento fuente y splitear el markdown completo
+    # Procesar página por página propagando el contexto de headers entre páginas
     from collections import defaultdict
     pages_by_source: dict[str, list[Document]] = defaultdict(list)
     for doc in raw_documents:
@@ -175,11 +175,17 @@ else:
 
     md_splits: list[Document] = []
     for source, pages in pages_by_source.items():
-        full_markdown = "\n\n".join(p.page_content for p in pages)
-        splits = md_splitter.split_text(full_markdown)
-        for doc in splits:
-            doc.metadata["source"] = source
-        md_splits.extend(splits)
+        headers_context: dict[str, str] = {}
+        for page_doc in pages:
+            page_splits = md_splitter.split_text(page_doc.page_content)
+            for split in page_splits:
+                for h in ("H1", "H2", "H3"):
+                    if h in split.metadata:
+                        headers_context[h] = split.metadata[h]
+                split.metadata = {**headers_context, **split.metadata}
+                split.metadata["source"] = source
+                split.metadata["page"] = page_doc.metadata["page"]
+            md_splits.extend(page_splits)
 
     # Prepend de headers al page_content para que el embedding capture la jerarquía
     for doc in md_splits:
