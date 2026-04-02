@@ -13,3 +13,5 @@ __pycache__/
 
 chunks.json
 inspect_chunks.py
+chunks_ocr.json
+inspect_chunks_ocr.py
