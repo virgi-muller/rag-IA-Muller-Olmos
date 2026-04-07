@@ -18,7 +18,7 @@ for _h in logging.root.handlers[:]:
 logging.root.addHandler(logging.NullHandler())
 
 for _noisy in ("pypdf", "pypdf._cmap", "pypdf._page",
-               "langchain", "langchain_core", "chromadb"):
+                "langchain", "langchain_core", "chromadb"):
     logging.getLogger(_noisy).setLevel(_SILENT)
 
 import glob
@@ -32,7 +32,7 @@ from langchain_text_splitters import MarkdownHeaderTextSplitter, RecursiveCharac
 
 load_dotenv()
 
-collection_name = "rag-muller-olmos-ocr"
+collection_name = "ocr_collection"
 
 
 # ------------------------------------------------------------
@@ -43,7 +43,7 @@ class MistralOCRLoader(BaseLoader):
     """DocumentLoader que usa la API OCR de Mistral para extraer texto
     de un PDF local como markdown estructurado."""
 
-    def __init__(self, file_path: str, api_key: str):
+    def _init_(self, file_path: str, api_key: str):
         self.file_path = file_path
         self.api_key = api_key
 
@@ -89,7 +89,7 @@ print("[INFO] Model: mistral-embed (Mistral AI)")
 
 
 # ------------------------------------------------------------
-# 1, 2 y 4. CARGAR DATOS Y CREAR BASE VECTORIAL (solo si vacía)
+# 1, 2 y 3. CARGAR DATOS Y CREAR BASE VECTORIAL (solo si vacía)
 # ------------------------------------------------------------
 
 vectorstore = Chroma(
@@ -98,6 +98,7 @@ vectorstore = Chroma(
     chroma_cloud_api_key=os.getenv("CHROMA_API_KEY"),
     tenant=os.getenv("CHROMA_TENANT"),
     database=os.getenv("CHROMA_DATABASE"),
+    collection_metadata={"hnsw:space": "cosine"},  # Se especifica coseno; por defecto Chroma usa L2
 )
 
 if vectorstore._collection.count() > 0:
@@ -205,11 +206,11 @@ else:
     print(f"[INFO] Fragmentos (chunks) generados: {len(documents)}")
     print(f"[INFO] Tamaño de chunk: 800 chars | Overlap: 150 chars")
 
-    # PASO 4 — Crear e indexar en Chroma Cloud (en batches de 300)
+    # PASO 3 — Crear e indexar en Chroma Cloud (en batches de 300)
     BATCH_SIZE = 300
     batches = [documents[i:i + BATCH_SIZE] for i in range(0, len(documents), BATCH_SIZE)]
 
-    print("\n[PASO 4] Indexando en Chroma Cloud...")
+    print("\n[PASO 3] Indexando en Chroma Cloud...")
     print(f"[INFO] Colección: {collection_name}")
     print(f"[INFO] Batches: {len(batches)} × {BATCH_SIZE} docs máx.")
 
@@ -221,6 +222,7 @@ else:
         chroma_cloud_api_key=os.getenv("CHROMA_API_KEY"),
         tenant=os.getenv("CHROMA_TENANT"),
         database=os.getenv("CHROMA_DATABASE"),
+        collection_metadata={"hnsw:space": "cosine"},  # Se especifica coseno; por defecto Chroma usa L2
     )
     print(f"  [OK] Batch 1/{len(batches)}  ({len(batches[0])} chunks)")
 
