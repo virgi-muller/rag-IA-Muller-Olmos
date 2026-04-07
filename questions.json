@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "¿Cuáles son los principios básicos de la entrevista emocional?"
+    },
+    {
+      "id": 2,
+      "question": "¿Cuáles son los criterios de suspensión del tratamiento con ISCI?"
+    },
+    {
+      "id": 3,
+      "question": "¿Qué opciones farmacológicas de primera línea se recomiendan para la neuropatía diabética dolorosa moderada a severa?"
+    },
+    {
+      "id": 4,
+      "question": "¿Cuáles son los factores de riesgo modificables asociados con el desarrollo de nefropatía diabética?"
+    },
+    {
+      "id": 5,
+      "question": "En personas con hipertensión arterial entre 18 y 79 años, con o sin diabetes mellitus, ¿qué valores de presión arterial en consultorio se recomiendan como objetivo terapéutico primario?"
+    },
+    {
+      "id": 6,
+      "question": "¿Qué pasos comprende la realización de la prueba del monofilamento de 10 gramos para la evaluación de la sensibilidad de los pies?"
+    },
+    {
+      "id": 7,
+      "question": "¿Qué profesionales pueden impartir la EDAM y cuál es la duración recomendada de las sesiones?"
+    },
+    {
+      "id": 8,
+      "question": "¿Cuáles son las etapas de la EDAM?"
+    },
+    {
+      "id": 9,
+      "question": "¿De qué manera influye la frecuencia del monitoreo glucémico tanto en la indicación inicial como en la suspensión del tratamiento con ISCI?"
+    },
+    {
+      "id": 10,
+      "question": "¿Cómo se justifican las estrategias de detección de nefropatía y retinopatía diabética en términos de frecuencia de monitoreo, características de los métodos y aceptabilidad para el paciente?"
+    },
+    {
+      "id": 11,
+      "question": "¿Cómo cambia la recomendación de tratamiento inicial para una persona recién diagnosticada que supera su meta de HbA1c en un 2% o más, según presente o no síntomas de hiperglucemia?"
+    },
+    {
+      "id": 12,
+      "question": "¿Qué objetivo clínico tiene el uso del monofilamento en personas con diabetes y qué condiciones deben cumplirse durante su aplicación para que el resultado sea válido?"
+    },
+    {
+      "id": 13,
+      "question": "¿Cómo se abordan los casos en que la familia actúa como factor de resistencia en lugar de red de contención en la educación diabetológica?"
+    },
+    {
+      "id": 14,
+      "question": "¿Qué ocurre si un paciente realiza automonitoreo glucémico menos de 4 veces por día pero cumple con todos los demás criterios de prescripción del ISCI?"
+    },
+    {
+      "id": 15,
+      "question": "¿Cuál es el tratamiento farmacológico específico recomendado para pacientes con nefropatía diabética que presentan un FGe menor a 45 ml/min/1,73m²?"
+    },
+    {
+      "id": 16,
+      "question": "¿El examen periódico del fondo de ojo reduce directamente la incidencia de retinopatía diabética?"
+    },
+    {
+      "id": 17,
+      "question": "¿Cuál es la dosis inicial en miligramos recomendada para recetar glibenclamida a un paciente recién diagnosticado?"
+    },
+    {
+      "id": 18,
+      "question": "Si el monofilamento se curva correctamente durante la prueba, ¿puede asumirse que la sensibilidad del paciente está conservada?"
+    }
+  ]
+}
